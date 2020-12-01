@@ -62,8 +62,8 @@ function App() {
     // console.log(res.status, res.data.data.regional)
     
     const x = res.data.data.regional;
-    let z=new Array();
-    x.map(y=>{z.push({...y, "id":Math.random().toString(), "showpp":false})});
+    let z=[];
+    x.map(y=>{return(z.push({...y, "id":Math.random().toString(), "showpp":false}))});
     z[30].showpp=true;
     setStateMarkers(z);
 }));
@@ -81,10 +81,10 @@ function App() {
   function closepp(state){
     state.showpp = false;
     const b = stateMarkers;
-    let result=new Array();
+    let result=[];
     b.map(
       s=>{
-        result.push({...s, "showpp":false})
+        return(result.push({...s, "showpp":false}))
       });
     setStateMarkers(result);
   }
